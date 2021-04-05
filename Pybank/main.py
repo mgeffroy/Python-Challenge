@@ -1,10 +1,11 @@
-#Pybank 
+#Pybank homework 
+#Import modules
 
 import os 
 import csv 
 import statistics as stat
 
-# 1. Import csv file 
+# Import csv file 
 
 budget_csvpath = os.path.join('Resources_Pybank', 'Budget_data.csv')
 
@@ -13,8 +14,8 @@ with open(budget_csvpath) as csvfile:
     print(csvreader)
 
 # State that file has a header 
-    csv_header = next (csvreader)
-    print (f"CSV Header: {csv_header}")
+    csv_header = next(csvreader)
+    print(f"CSV Header: {csv_header}")
 # Create a Python script that analyzes the records to calculate each of the following:
     # The total number of months included in the dataset
     
@@ -26,14 +27,23 @@ with open(budget_csvpath) as csvfile:
     # Create variables for total profit and start at zero
     total_profit = 0
     # Create new list where information about changes in profit will be added 
-    change_profit = [] 
+    profit_diff = [] 
+
+    #Create variables using next to be able to make the substraction for the change of profit list 
+    
+    Data_start = next(csvreader)
+    Data_line2 = next(csvreader)
+
+    #Create variable for difference
+    diff = 0 
 
  # Loop through everything to see get the total sum of months and to get the total profit
     for row in csvreader:
         month_count = month_count + 1
         total_profit = int(row[1]) + total_profit
-        
-        #changes = int(int(next(row[1])))
+        diff = int(Data_start[1] - int(Data_line2[1]
+        profit_diff.append(int(diff)
+        #profit_diff = int(profit_sub - (row[1]))
         #change_profit.append(changes)
      
         
@@ -57,7 +67,9 @@ with open(budget_csvpath) as csvfile:
     print( "Total: $" + str (total_profit))
 
   #Export file into a text file 
-    
+#output_path = os.path.join('Analysis_Pybank','Pybank_results.txt')
+#with open(output_path, 'w', newline ='') as txtfile:
+
     
      
   
