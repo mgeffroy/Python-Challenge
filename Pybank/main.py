@@ -5,6 +5,7 @@ import os
 import csv 
 import statistics as stat
 
+
 # Import csv file 
 
 budget_csvpath = os.path.join('Resources_Pybank', 'Budget_data.csv')
@@ -31,22 +32,24 @@ with open(budget_csvpath) as csvfile:
 
     #Create variables using next to be able to make the substraction for the change of profit list 
     
-    Data_start = next(csvreader)
-    Data_line2 = next(csvreader)
+  
 
     #Create variable for difference
-    diff = 0 
+    diff = [] 
 
  # Loop through everything to see get the total sum of months and to get the total profit
     for row in csvreader:
         month_count = month_count + 1
         total_profit = int(row[1]) + total_profit
-        diff = int(Data_start[1] - int(Data_line2[1]
-        profit_diff.append(int(diff)
+       
+        #diff.append(int(Data_start[1] - int(Data_line2[1])))
+        #print(diff)
+        
         #profit_diff = int(profit_sub - (row[1]))
         #change_profit.append(changes)
      
-        
+ #Data_start = next(csvreader)
+ #Data_line2 = next(csvreader)    
     
 
 # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
@@ -60,16 +63,12 @@ with open(budget_csvpath) as csvfile:
         # 13. Find min result (use min.())
         # 14. Print both date and amount with min result
     
-    # Print  information 
-    print ("Financial Analysis")
-    print ("----------------------------------------------------------------------")
-    print ("Total months: " + str(month_count))
+        # Print  information 
+    print("Financial Analysis")
+    print("----------------------------------------------------------------------")
+    print("Total months: " + str(month_count))
     print( "Total: $" + str (total_profit))
 
-  #Export file into a text file 
-#output_path = os.path.join('Analysis_Pybank','Pybank_results.txt')
-#with open(output_path, 'w', newline ='') as txtfile:
-
-    
-     
-  
+        #Export file into a text file 
+        #output_path = os.path.join('Analysis_Pybank','Pybank_results.txt')
+        #with open(output_path, 'w', newline ='') as
