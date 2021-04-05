@@ -21,8 +21,7 @@ with open(budget_csvpath) as csvfile:
         # 4.- Add everything.
         # 5.- Print result 
     
-    months = [] 
-    profit = []
+    change_profit = [] 
     month_count = 0 
     total_profit = 0
     for row in csvreader:
@@ -32,9 +31,11 @@ with open(budget_csvpath) as csvfile:
 
 
     
-    #print months 
-    print (month_count)
-    print(total_profit)
+    # Print information 
+    print ("Financial Analysis")
+    print ("----------------------------------------------------------------------")
+    print ("Total months: " + str(month_count))
+    print( "Total: $" + str (total_profit))
 
     
     # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
