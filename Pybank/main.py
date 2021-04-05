@@ -2,6 +2,7 @@
 
 import os 
 import csv 
+import statistics as stat
 
 # 1. Import csv file 
 
@@ -31,6 +32,11 @@ with open(budget_csvpath) as csvfile:
     for row in csvreader:
         month_count = month_count + 1
         total_profit = int(row[1]) + total_profit
+        
+        #changes = int(int(next(row[1])))
+        #change_profit.append(changes)
+     
+        
     
 
 # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
