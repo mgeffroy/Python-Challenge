@@ -1,7 +1,7 @@
 # Python-Challenge
 ## Information: 
 Python Homework for the Data Analysis Bootcamp: Py me Up Charlie!
-This repository contains the code for the analysis of two different CSV files, PyPoll and PyBank. 
+This repository contains the code for the analysis of two different CSV files called ***PyPoll*** and ***PyBank***. 
 ### Pybank 
 This repository contains the following: 
 - ***main.py:*** Python script to analyzing the financial records of a company. 
