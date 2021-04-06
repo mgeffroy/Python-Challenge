@@ -14,53 +14,37 @@ with open(budget_csvpath) as csvfile:
 
 # State that file has a header 
     csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
-# Create a Python script that analyzes the records to calculate each of the following:
-    # The total number of months included in the dataset
+    print(f"CSV Header: {csv_header}")    
 
-     
    # Create variables for counting total months and start at zero
     month_count = 0 
     # Create variables for total profit and start at zero
     total_profit = 0
-    # Create new list where information about changes in profit will be added 
-    profit = []                     
-    profit_diff = [] 
+    # Create new list where information where changes in profit will be added 
+    profit = []                     #List of profits
+    profit_diff = []                #List of profit differences
 
-    #Create variables using next to be able to make the substraction for the change of profit list 
-    
-
-    #Create variable for difference
 
  # Loop through everything to see get the total sum of months and to get the total profit
     for row in csvreader:
         month_count = month_count + 1
         total_profit = int(row[1]) + total_profit 
+        # Add rows to profit list 
         profit.append(int((row[1])))
         
-#Create variable profit   
+#Create variable profit difference by looping through profit list.   
     profit_diff = [profit[i + 1] - profit[i] for i in range(len(profit)-1)]
-           
-    print(profit_diff)
-    Average_change = round(sum(profit_diff)/ len(profit_diff),2)
-    print(Average_change)
     
-
-
-
-
+    # Calculate average of the differences between profits
+      
+    Average_change = round(sum(profit_diff)/ len(profit_diff),2)
    
 
-# Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
-        # 6.- With previous answer divide everything by the lenght of list (or download average funcion of statistics module)
-    # The greatest increase in profits (date and amount) over the entire period
-        # 7.- Loop over every value of the new list with the profit difference 
-        # 8.- Do one number minus the next one.
-        # 9.- Find max of result ( use max.()) 
-        # 10. Print both date and amount (first column) with the max result 
+    #Find max profit change and min profit change 
+    max_value = max(profit_diff)
+    min_value = min(profit_diff)
 
-        # 13. Find min result (use min.())
-        # 14. Print both date and amount with min result
+    # Find date (? depending on profit loss)
     
         # Print  information 
     print("Financial Analysis")
@@ -68,7 +52,17 @@ with open(budget_csvpath) as csvfile:
     print("Total months: " + str(month_count))
     print( "Total: $" + str (total_profit))
     print(f'Average  Change: ${Average_change}')
+    print(f'Greatest increase in profits: {max_value}')
+    print(f'Greatest decrease in profits: {min_value}')
 
-        #Export file into a text file 
-        #output_path = os.path.join('Analysis_Pybank','Pybank_results.txt')
-        #with open(output_path, 'w', newline ='') as
+    # Export file into a text file 
+    #Write everythin into text file
+output_path = os.path.join('Analysis_Pybank','Pybank_results.txt')
+with open(output_path, 'w', newline ='') as txtfile: 
+    txtfile.write("Financial Analysis")
+    txtfile.write("----------------------------------------------------------------------")
+    txtfile.write("Total months: " + str(month_count))
+    txtfile.write( "Total: $" + str (total_profit))
+    txtfile.write(f'Average  Change: ${Average_change}')
+    txtfile.write(f'Greatest increse in profits: {max_value}')
+    txtfile.write(f'Greatest decrease in profits: {min_value}')
