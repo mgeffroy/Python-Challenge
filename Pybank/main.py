@@ -3,8 +3,6 @@
 
 import os 
 import csv 
-import statistics as stat
-
 
 # Import csv file 
 
@@ -26,7 +24,7 @@ with open(budget_csvpath) as csvfile:
     # Create variables for total profit and start at zero
     total_profit = 0
     # Create new list where information about changes in profit will be added 
-    profit = []
+    profit = []                     
     profit_diff = [] 
 
     #Create variables using next to be able to make the substraction for the change of profit list 
@@ -40,10 +38,13 @@ with open(budget_csvpath) as csvfile:
         total_profit = int(row[1]) + total_profit 
         profit.append(int((row[1])))
         
-        
+#Create variable profit   
     profit_diff = [profit[i + 1] - profit[i] for i in range(len(profit)-1)]
            
     print(profit_diff)
+    Average_change = round(sum(profit_diff)/ len(profit_diff),2)
+    print(Average_change)
+    
 
 
 
@@ -66,6 +67,7 @@ with open(budget_csvpath) as csvfile:
     print("----------------------------------------------------------------------")
     print("Total months: " + str(month_count))
     print( "Total: $" + str (total_profit))
+    print(f'Average  Change: ${Average_change}')
 
         #Export file into a text file 
         #output_path = os.path.join('Analysis_Pybank','Pybank_results.txt')
