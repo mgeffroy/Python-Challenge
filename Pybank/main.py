@@ -59,10 +59,11 @@ with open(budget_csvpath) as csvfile:
     #Write everythin into text file
 output_path = os.path.join('Analysis_Pybank','Pybank_results.txt')
 with open(output_path, 'w', newline ='') as txtfile: 
-    txtfile.write("Financial Analysis")
-    txtfile.write("----------------------------------------------------------------------")
-    txtfile.write("Total months: " + str(month_count))
-    txtfile.write( "Total: $" + str (total_profit))
-    txtfile.write(f'Average  Change: ${Average_change}')
-    txtfile.write(f'Greatest increse in profits: {max_value}')
-    txtfile.write(f'Greatest decrease in profits: {min_value}')
+    txtfile.writelines("Financial Analysis\n")
+    txtfile.writelines("----------------------------------------------------------------------\n")
+    txtfile.writelines("Total months: " + str(month_count) )
+    txtfile.writelines("\nTotal: $" + str (total_profit))
+    txtfile.writelines(f'\nAverage  Change: ${Average_change}\n')
+    txtfile.writelines(f'Greatest increse in profits: {max_value}\n')
+    txtfile.writelines(f'Greatest decrease in profits: {min_value}\n')
+    txtfile.writelines("------------------------------------------------------------------------")
