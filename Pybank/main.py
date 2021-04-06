@@ -1,5 +1,12 @@
 #Pybank homework 
-#Import modules
+# To do: 
+        #Calculate total number of months included in the dataset
+        #Calculate net total amount of "Profit/Losses".
+        #Calculate the average changes in "Profit/Losses" over the entire period
+        #Calculate greatest increase in profits (date and amount)
+        #Calculate greatest decrease in losses (date and amount).
+
+# Import modules
 
 import os 
 import csv 
