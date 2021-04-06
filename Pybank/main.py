@@ -19,38 +19,36 @@ with open(budget_csvpath) as csvfile:
     print(f"CSV Header: {csv_header}")
 # Create a Python script that analyzes the records to calculate each of the following:
     # The total number of months included in the dataset
-    
-        # The net total amount of "Profit/Losses" over the entire period
-        # 4.- Add everything.
+
      
    # Create variables for counting total months and start at zero
     month_count = 0 
     # Create variables for total profit and start at zero
     total_profit = 0
     # Create new list where information about changes in profit will be added 
+    profit = []
     profit_diff = [] 
 
     #Create variables using next to be able to make the substraction for the change of profit list 
     
-  
 
     #Create variable for difference
-    diff = [] 
 
  # Loop through everything to see get the total sum of months and to get the total profit
     for row in csvreader:
         month_count = month_count + 1
-        total_profit = int(row[1]) + total_profit
-       
-        #diff.append(int(Data_start[1] - int(Data_line2[1])))
-        #print(diff)
+        total_profit = int(row[1]) + total_profit 
+        profit.append(int((row[1])))
         
-        #profit_diff = int(profit_sub - (row[1]))
-        #change_profit.append(changes)
-     
- #Data_start = next(csvreader)
- #Data_line2 = next(csvreader)    
-    
+        
+    profit_diff = [profit[i + 1] - profit[i] for i in range(len(profit)-1)]
+           
+    print(profit_diff)
+
+
+
+
+   
 
 # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
         # 6.- With previous answer divide everything by the lenght of list (or download average funcion of statistics module)
