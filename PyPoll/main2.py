@@ -25,18 +25,42 @@ with open(poll_csvpath) as csvfile:
 
 # Write variables 
     votes_cast = 0 
-    candidates = {}
+    candidate_list = []
+
 
 #loop through list to count the total number of votes 
     for row in csvreader:
         votes_cast = votes_cast + 1 
+        candidate = str(row[2])
+        if candidate not in candidate_list: 
+            candidate_list.append(str(candidate))
     print(votes_cast)
+    print(candidate_list)
+#After getting candidate list prepare vote count for each
+    Khan_votes = 0 
+    Li_votes = 0 
+    Otooley_votes = 0 
+    Correy_votes = 0 
+# Prepare conditional for adding votes obtained by each candidate
 
+    for row in csvreader:
+       if row[2] == "Khan":
+           Khan_votes += 1
+    print(Khan_votes)
+        #elif row[1] == "Li":
+           #Li_votes += "Li"
 
+#get percentages for votes of each candidate 
+# state who the winner is 
+    # make a little dictionary with members and total counts
+    #loop through dictionary to see which had highest number of votes
 
-    
+# print results 
+# Total number of votes 
+#("Election results")
+#("-----------")
+#()
 
-
-
+# prepare output file for results 
 #output_path = os.path.join('Analysis_Poll','Pypoll_results.txt')
 #with open(output_path, 'w', newline ='') as txtfile: 
