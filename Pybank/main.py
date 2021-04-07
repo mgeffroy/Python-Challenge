@@ -45,6 +45,10 @@ with open(budget_csvpath) as csvfile:
     min_value = min(profit_diff)
 
     # Find date (? depending on profit loss)
+    #new_list = zip(csvreader, profit_diff)
+    #print(new_list)
+    #make first row with next
+    
     
         # Print  information 
     print("Financial Analysis")
