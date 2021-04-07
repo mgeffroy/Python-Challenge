@@ -65,11 +65,12 @@ with open(poll_csvpath) as csvfile:
         operation = round(((n * 100)/m),2)
         total = (f'{operation}%')
         return total
+
   #print percent for each candidate   
-    print(percent(Khan_votes,votes_cast))
-    print(percent(Correy_votes,votes_cast))
-    print(percent(Li_votes,votes_cast))
-    print(percent(Otooley_votes,votes_cast))
+    Khan_percent = percent(Khan_votes,votes_cast)
+    Correy_percent = percent(Correy_votes,votes_cast)
+    Li_percent = percent(Li_votes,votes_cast)
+    Otooley_percent = percent(Otooley_votes,votes_cast)
    
 # Find winner 
     total_votes =[]
@@ -78,19 +79,22 @@ with open(poll_csvpath) as csvfile:
     print(winner)
 
 
-
-
-
 # state who the winner is 
     # make a little dictionary with members and total counts
     #loop through dictionary to see which had highest number of votes
 
 # print results 
 # Total number of votes 
-#("Election results")
-#("-----------")
-#()
-
+print("Election results")
+print("----------------------------------------------------")
+print(f'Total votes: {votes_cast}')
+print(f'Khan:{Khan_percent} ({Khan_votes})')
+print(f'Correy:{Correy_percent} ({Correy_votes})')
+print(f'Li:{Li_percent} ({Li_votes})')
+print(f'O´tooley:{Otooley_percent} ({Otooley_votes})') # how to put ' without it interfering?
+print("-----------------------------------------------------------")
+print("Winner")
+print
 # prepare output file for results 
 #output_path = os.path.join('Analysis_Poll','Pypoll_results.txt')
 #with open(output_path, 'w', newline ='') as txtfile: 
