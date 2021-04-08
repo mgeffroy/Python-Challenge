@@ -13,8 +13,7 @@ with open(budget_csvpath) as csvfile:
     print(csvreader)
 
 # State that file has a header 
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")    
+    csv_header = next(csvreader)  
 
    # Create variables for counting total months and start at zero
     month_count = 0 
