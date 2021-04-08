@@ -95,8 +95,7 @@ with open(poll_csvpath) as csvfile:
             winner = "O'tooley"
         else: 
             winner = "Correy"
-    print(winner)
-    
+
 # print results 
 # Total number of votes 
 print("Election results")
@@ -109,6 +108,7 @@ print(f'O´tooley: {Otooley_percent}  ({Otooley_votes})') # how to put ' without
 print("-----------------------------------------------------------")
 print("Winner")
 print("-----------------------------------------------------------")
+print("Winner: "+ str(winner))
 
 
 # prepare output file for results 
@@ -125,3 +125,4 @@ with open(output_path, 'w', newline ='') as txtfile:
     txtfile.writelines("-------------------------------------------------------\n")
     txtfile.writelines("Winner\n")
     txtfile.writelines("--------------------------------------------------------\n")
+    txtfile.writelines("Winner: "+ str(winner))
