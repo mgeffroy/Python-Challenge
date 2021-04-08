@@ -20,8 +20,7 @@ with open(poll_csvpath) as csvfile:
     print(csvreader)
 
 # State that file has a header 
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}") 
+    csv_header = next(csvreader) 
 
 # Write variables 
     votes_cast = 0 
@@ -73,9 +72,6 @@ with open(poll_csvpath) as csvfile:
     Li_percent = percent(Li_votes,votes_cast)
     Otooley_percent = percent(Otooley_votes,votes_cast)
    
-    
-
-
 # state who the winner is 
     # make a little dictionary with members and total counts
     poll_results =[{"Candidate":"Khan",
@@ -90,37 +86,34 @@ with open(poll_csvpath) as csvfile:
                     "Percent":Correy_percent}]
     
     #loop through dictionary to see which had highest number of votes
-    for results in poll_results:
-        if Khan_votes > results: 
-            winner = "Khan"
-            print(winner)
- 
-        
-    #winner = max(poll_results[1])
-    #print(winner)
+    #for results in poll_results:
+        #if Khan_votes > "Votes": 
+         #   winner = "Khan"
+          #  print(winner)
 
 # print results 
 # Total number of votes 
 print("Election results")
-print("----------------------------------------------------")
+print("-----------------------------------------------------------")
 print(f'Total votes: {votes_cast}')
-print(f'Khan:{Khan_percent} ({Khan_votes})')
-print(f'Correy:{Correy_percent} ({Correy_votes})')
-print(f'Li:{Li_percent} ({Li_votes})')
-print(f'Otooley:{Otooley_percent} ({Otooley_votes})') # how to put ' without it interfering?
+print(f'Khan: {Khan_percent}  ({Khan_votes})')
+print(f'Correy: {Correy_percent}  ({Correy_votes})')
+print(f'Li: {Li_percent}  ({Li_votes})')
+print(f'O´tooley: {Otooley_percent}  ({Otooley_votes})') # how to put ' without it interfering?
 print("-----------------------------------------------------------")
 print("Winner")
-print("---------------------------------------------------")
+print("-----------------------------------------------------------")
 # prepare output file for results 
 output_path = os.path.join('Analysis_Poll','Pypoll_results.txt')
 with open(output_path, 'w', newline ='') as txtfile: 
-    txtfile.writelines("Election results")
-    txtfile.writelines("----------------------------------------------------")
-    txtfile.writelines(f'Total votes: {votes_cast}')
-    txtfile.writelines(f'Khan:{Khan_percent} ({Khan_votes})')
-    txtfile.writelines(f'Correy:{Correy_percent} ({Correy_votes})')
-    txtfile.writelines(f'Li:{Li_percent} ({Li_votes})')
-    txtfile.writelines(f'O´tooley:{Otooley_percent} ({Otooley_votes})') # how to put ' without it interfering?
-    txtfile.writelines("-----------------------------------------------------------")
-    txtfile.writelines("Winner")
-    txtfile.writelines("---------------------------------------------------")
+    txtfile.writelines("-----------------------------------------------------\n")
+    txtfile.writelines("Election results\n")
+    txtfile.writelines("------------------------------------------------------\n")
+    txtfile.writelines(f'Total votes: {votes_cast}\n')
+    txtfile.writelines(f'Khan: {Khan_percent}  ({Khan_votes})\n')
+    txtfile.writelines(f'Correy: {Correy_percent}  ({Correy_votes})\n')
+    txtfile.writelines(f'Li: {Li_percent}  ({Li_votes})\n')
+    txtfile.writelines(f'O´tooley: {Otooley_percent} ({Otooley_votes})\n') # how to put ' without it interfering?
+    txtfile.writelines("-------------------------------------------------------\n")
+    txtfile.writelines("Winner\n")
+    txtfile.writelines("--------------------------------------------------------\n")

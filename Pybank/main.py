@@ -33,7 +33,7 @@ with open(budget_csvpath) as csvfile:
         profit.append(int((row[1])))
         months.append(str((row[0])))
         
-#Create variable profit difference by looping through profit list.   
+#Create vargiable profit difference by looping through profit list.   
     profit_diff = [profit[i + 1] - profit[i] for i in range(len(profit)-1)]
     
     # Calculate average of the differences between profits
