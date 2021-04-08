@@ -22,8 +22,9 @@ with open(budget_csvpath) as csvfile:
     total_profit = 0
     # Create new list where information where changes in profit will be added 
     profit = []                     #List of profits
-    profit_diff = []                #List of profit differences
-
+    profit_diff = []
+                    #List of profit differences
+    months = []
 
  # Loop through everything to see get the total sum of months and to get the total profit
     for row in csvreader:
@@ -31,6 +32,7 @@ with open(budget_csvpath) as csvfile:
         total_profit = int(row[1]) + total_profit 
         # Add rows to profit list 
         profit.append(int((row[1])))
+        months.append(str((row[0])))
         
 #Create variable profit difference by looping through profit list.   
     profit_diff = [profit[i + 1] - profit[i] for i in range(len(profit)-1)]
@@ -43,6 +45,12 @@ with open(budget_csvpath) as csvfile:
     #Find max profit change and min profit change 
     max_value = max(profit_diff)
     min_value = min(profit_diff)
+    print(profit_diff.index(max_value)) #get number (24) 
+    print(profit_diff.index(min_value)) #number 43 
+
+    print(months[25])
+    print(months[44])
+    
 
     # Find date (? depending on profit loss)
     #new_list = zip(csvreader, profit_diff)
