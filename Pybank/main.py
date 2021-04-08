@@ -45,37 +45,33 @@ with open(budget_csvpath) as csvfile:
     #Find max profit change and min profit change 
     max_value = max(profit_diff)
     min_value = min(profit_diff)
-    print(profit_diff.index(max_value)) #get number (24) 
-    print(profit_diff.index(min_value)) #number 43 
+    print(profit_diff.index(max_value))    #get index number result is (24) 
+    print(profit_diff.index(min_value)) #get index number result is  (43) 
 
-    print(months[25])
-    print(months[44])
-    
-
-    # Find date (? depending on profit loss)
-    #new_list = zip(csvreader, profit_diff)
-    #print(new_list)
-    #make first row with next
-    
-    
+    # to get month information use index number + 1 on the months list 
+    # month for max value is using 25 and for min is 44
+     
         # Print  information 
+    print("") 
+    print("-----------------------------------------------------------------")   
     print("Financial Analysis")
     print("----------------------------------------------------------------------")
     print("Total months: " + str(month_count))
     print( "Total: $" + str (total_profit))
     print(f'Average  Change: ${Average_change}')
-    print(f'Greatest increase in profits: {max_value}')
-    print(f'Greatest decrease in profits: {min_value}')
+    print(f'Greatest increase in profits: {months[25]} ({max_value})')
+    print(f'Greatest decrease in profits: {months[44]} ({min_value})')
 
     # Export file into a text file 
     #Write everythin into text file
 output_path = os.path.join('Analysis_Pybank','Pybank_results.txt')
-with open(output_path, 'w', newline ='') as txtfile: 
+with open(output_path, 'w', newline ='') as txtfile:
+    txtfile.writelines("----------------------------------------------------------------------\n")
     txtfile.writelines("Financial Analysis\n")
     txtfile.writelines("----------------------------------------------------------------------\n")
     txtfile.writelines("Total months: " + str(month_count) )
     txtfile.writelines("\nTotal: $" + str (total_profit))
     txtfile.writelines(f'\nAverage  Change: ${Average_change}\n')
-    txtfile.writelines(f'Greatest increse in profits: {max_value}\n')
+    txtfile.writelines(f'Greatest increse in profits:  {months[25]}{max_value}\n')
     txtfile.writelines(f'Greatest decrease in profits: {min_value}\n')
     txtfile.writelines("------------------------------------------------------------------------")
