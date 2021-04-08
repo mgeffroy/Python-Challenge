@@ -25,18 +25,102 @@ with open(poll_csvpath) as csvfile:
 
 # Write variables 
     votes_cast = 0 
-    candidates = {}
+    candidate_list = []
+    poll_results = {}
+
+# While coding got candidate list after first loop prepare vote count for each, starting at 0
+    Khan_votes = 0  
+    Otooley_votes = 0 
+    Li_votes = 0
+    Correy_votes = 0 
 
 #loop through list to count the total number of votes 
     for row in csvreader:
         votes_cast = votes_cast + 1 
+#Get names of different candidates putting them in a separate list and printing them
+        candidate = str(row[2])
+        if candidate not in candidate_list: 
+            candidate_list.append(str(candidate))
+     # Prepare conditional for adding votes obtained by each candidate
+        if (candidate == 'Khan'):
+           Khan_votes += 1
+        elif(candidate == 'Correy'):
+            Correy_votes = Correy_votes +1 
+        elif (candidate == 'Li'):
+            Li_votes = Li_votes + 1
+        elif(candidate == "O'Tooley"):
+            Otooley_votes +=1
+      
     print(votes_cast)
+    print(candidate_list)
+    print(Khan_votes)
+    print(Correy_votes)
+    print(Li_votes)
+    print(Otooley_votes)
 
+#get percentages for votes of each candidate 
+#Make percent function 
+    def percent(n,m): 
+        n=float(n)
+        m=float(m)
+        operation = round(((n * 100)/m),2)
+        total = (f'{operation}%')
+        return total
 
-
+  #print percent for each candidate   
+    Khan_percent = percent(Khan_votes,votes_cast)
+    Correy_percent = percent(Correy_votes,votes_cast)
+    Li_percent = percent(Li_votes,votes_cast)
+    Otooley_percent = percent(Otooley_votes,votes_cast)
+   
     
 
 
+# state who the winner is 
+    # make a little dictionary with members and total counts
+    poll_results =[{"Candidate":"Khan",
+                    "Votes":Khan_votes,
+                    "Percent":Khan_percent}, 
+                    {"Candidate":"Li","Votes": Li_votes , "Percent": Li_percent}, 
+                    {"Candidate":"O'tooley",
+                    "Votes":Otooley_votes,
+                    "Percent":Otooley_percent}, 
+                    {"Candidate":"Correy",
+                    "Votes":Correy_votes,
+                    "Percent":Correy_percent}]
+    
+    #loop through dictionary to see which had highest number of votes
+    for results in poll_results:
+        if Khan_votes > results: 
+            winner = "Khan"
+            print(winner)
+ 
+        
+    #winner = max(poll_results[1])
+    #print(winner)
 
-#output_path = os.path.join('Analysis_Poll','Pypoll_results.txt')
-#with open(output_path, 'w', newline ='') as txtfile: 
+# print results 
+# Total number of votes 
+print("Election results")
+print("----------------------------------------------------")
+print(f'Total votes: {votes_cast}')
+print(f'Khan:{Khan_percent} ({Khan_votes})')
+print(f'Correy:{Correy_percent} ({Correy_votes})')
+print(f'Li:{Li_percent} ({Li_votes})')
+print(f'Otooley:{Otooley_percent} ({Otooley_votes})') # how to put ' without it interfering?
+print("-----------------------------------------------------------")
+print("Winner")
+print("---------------------------------------------------")
+# prepare output file for results 
+output_path = os.path.join('Analysis_Poll','Pypoll_results.txt')
+with open(output_path, 'w', newline ='') as txtfile: 
+    txtfile.writelines("Election results")
+    txtfile.writelines("----------------------------------------------------")
+    txtfile.writelines(f'Total votes: {votes_cast}')
+    txtfile.writelines(f'Khan:{Khan_percent} ({Khan_votes})')
+    txtfile.writelines(f'Correy:{Correy_percent} ({Correy_votes})')
+    txtfile.writelines(f'Li:{Li_percent} ({Li_votes})')
+    txtfile.writelines(f'O´tooley:{Otooley_percent} ({Otooley_votes})') # how to put ' without it interfering?
+    txtfile.writelines("-----------------------------------------------------------")
+    txtfile.writelines("Winner")
+    txtfile.writelines("---------------------------------------------------")
