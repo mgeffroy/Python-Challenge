@@ -85,12 +85,18 @@ with open(poll_csvpath) as csvfile:
                     "Votes":Correy_votes,
                     "Percent":Correy_percent}]
     
-    #loop through dictionary to see which had highest number of votes
-    #for results in poll_results:
-        #if Khan_votes > "Votes": 
-         #   winner = "Khan"
-          #  print(winner)
-
+    #Conditionals to find the winner through dictionary to see which had highest number of votes
+    for results in poll_results:
+        if Khan_votes > Li_votes and Otooley_votes and Correy_votes:
+            winner = "Khan"
+        elif Li_votes > Khan_votes and Otooley_votes and Correy_votes:
+            winner = "Li"
+        elif Otooley_votes > Khan_votes and Li_votes and Correy_votes: 
+            winner = "O'tooley"
+        else: 
+            winner = "Correy"
+    print(winner)
+    
 # print results 
 # Total number of votes 
 print("Election results")
@@ -103,6 +109,8 @@ print(f'O´tooley: {Otooley_percent}  ({Otooley_votes})') # how to put ' without
 print("-----------------------------------------------------------")
 print("Winner")
 print("-----------------------------------------------------------")
+
+
 # prepare output file for results 
 output_path = os.path.join('Analysis_Poll','Pypoll_results.txt')
 with open(output_path, 'w', newline ='') as txtfile: 
